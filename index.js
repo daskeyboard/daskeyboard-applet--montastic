@@ -28,7 +28,7 @@ class QMontastic extends q.DesktopApp {
   }
   /** ping Montastic and set the signal  */
   async run() {
-    request.get({
+    return request.get({
         url: serviceUrl,
         headers: this.serviceHeaders,
         json: true
