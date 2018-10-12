@@ -22,7 +22,7 @@ class QMontastic extends q.DesktopApp {
 
     this.serviceHeaders = {
       "Content-Type": "application/json",
-      "X-API-KEY": this.config.authorization.apiKey,
+      "X-API-KEY": this.authorization.apiKey,
     }
 
   }
