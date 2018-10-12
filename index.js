@@ -50,7 +50,7 @@ class QMontastic extends q.DesktopApp {
           let point = new q.Point(responseColors[status],
             responseEffects[status]);
           if (this.config.monitors) {
-            let i = this.config.monitors.indexOf(monitorId);
+            let i = this.locateMonitor(monitorId);
             if (i >= 0) {
               console.log(`Adding point at index ${i}: ${JSON.stringify(point)}`);
               points[i] = point;
@@ -68,6 +68,14 @@ class QMontastic extends q.DesktopApp {
       .catch(function (error) {
         console.error("Got error sending request to service:", error);
       });
+  }
+
+  locateMonitor(monitorId) {
+    for (let i=0; i<this.config.monitors.length; i++) {
+      if (this.config.monitors[i] == monitorId) {
+        return i;
+      }
+    }
   }
 }
 
