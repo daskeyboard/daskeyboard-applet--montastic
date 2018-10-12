@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "request-promise": "^4.2.2",
-    "daskeyboard-applet": "^2.1.0"
+    "daskeyboard-applet": "^2.2.0"
   },
   "qConfig": {
     "geometry": {
