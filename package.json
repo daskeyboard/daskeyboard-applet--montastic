@@ -17,8 +17,8 @@
     "url": "https://github.com/corykim/q-extension-montastic.git"
   },
   "dependencies": {
-    "request-promise": "^4.2.2",
-    "daskeyboard-applet": "^2.2.0"
+    "daskeyboard-applet": "^2.2.8",
+    "request-promise": "^4.2.2"
   },
   "qConfig": {
     "geometry": {
@@ -26,13 +26,14 @@
       "height": 1
     },
     "applet": {
-      "defaults": {
-      }
+      "defaults": {}
     },
     "requirements": {
       "authorization": "apiKey",
       "applet": {
-        "monitors": ["string"]
+        "monitors": [
+          "string"
+        ]
       }
     }
   }
