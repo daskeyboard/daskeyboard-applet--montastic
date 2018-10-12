@@ -52,9 +52,11 @@ class QMontastic extends q.DesktopApp {
           if (this.config.monitors) {
             let i = this.config.monitors.indexOf(monitorId);
             if (i >= 0) {
+              console.log(`Adding point at index ${i}: ${JSON.stringify(point)}`);
               points[i] = point;
             }
           } else {
+            console.log(`Pushing point: ${JSON.stringify(point)}`);
             points.push(point);
           }
         }
