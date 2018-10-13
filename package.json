@@ -31,9 +31,7 @@
     "requirements": {
       "authorization": "apiKey",
       "applet": {
-        "monitors": [
-          "string"
-        ]
+        "monitors": "string.."
       }
     }
   }
