@@ -80,4 +80,3 @@ class QMontastic extends q.DesktopApp {
 
 
 const montastic = new QMontastic();
-montastic.start();
