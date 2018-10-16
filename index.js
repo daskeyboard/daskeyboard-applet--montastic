@@ -66,7 +66,6 @@ class QMontastic extends q.DesktopApp {
               message: alerts.join("; ")
             });
 
-            console.log("Sending signal: " + JSON.stringify(signal));
             return signal;
           } else {
             return null;
