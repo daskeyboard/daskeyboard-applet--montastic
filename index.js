@@ -52,7 +52,7 @@ class QMontastic extends q.DesktopApp {
             if (status === -1) {
               color = '#FF0000';
               alerts.push(monitor.name + " is down!");
-            } else if (this.lastMonitors[monitorId]) {
+            } else if (null !== this.lastMonitors[monitorId]) {
               alerts.push(monitor.name + " is back up.");
             }
             this.lastMonitors[monitorId] = status;
