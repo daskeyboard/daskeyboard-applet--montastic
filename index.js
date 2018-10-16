@@ -59,6 +59,10 @@ class QMontastic extends q.DesktopApp {
           }
 
           if (triggered) {
+            if (alerts.length > 0) {
+              console.log("Sending alerts: " + JSON.stringify(alerts));
+            }
+
             let signal = new q.Signal([
               [new q.Point(color)]
             ], {
