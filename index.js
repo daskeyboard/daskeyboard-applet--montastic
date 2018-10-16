@@ -45,15 +45,15 @@ class QMontastic extends q.DesktopApp {
           let monitorId = monitor.id;
 
           console.log(`For monitor ${monitorId}, got status: ${status}`);
-          if (status != lastMonitors[monitorId]) {
+          if (status != this.lastMonitors[monitorId]) {
             triggered = true;
             if (status === -1) {
               color = '#FF0000';
               alerts.push(monitor.name + " is down!");
-            } else if (lastMonitors[monitorId]) {
+            } else if (this.lastMonitors[monitorId]) {
               alerts.push(monitor.name + " is back up.");
             }
-            lastMonitors[monitorId] = status;
+            this.lastMonitors[monitorId] = status;
           }
 
           if (triggered) {
