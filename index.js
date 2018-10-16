@@ -25,7 +25,9 @@ class QMontastic extends q.DesktopApp {
       "X-API-KEY": this.authorization.apiKey,
     }
 
+    this.lastMonitors = {};
   }
+
   /** ping Montastic and set the signal  */
   async run() {
     return request.get({
@@ -33,12 +35,9 @@ class QMontastic extends q.DesktopApp {
         headers: this.serviceHeaders,
         json: true
       }).then((body) => {
-        let points = null;
-        if (this.config.monitors) {
-          points = new Array(this.config.monitors.length);
-        } else {
-          points = [];
-        }
+        let color = '#00FF00';
+        let triggered = false;
+        let alerts = [];
 
         for (let monitor of body) {
           // extract the important values from the response
@@ -46,23 +45,27 @@ class QMontastic extends q.DesktopApp {
           let monitorId = monitor.id;
 
           console.log(`For monitor ${monitorId}, got status: ${status}`);
-
-          let point = new q.Point(responseColors[status],
-            responseEffects[status]);
-          if (this.config.monitors) {
-            let i = this.locateMonitor(monitorId);
-            if (i >= 0) {
-              points[i] = point;
-            } else {
-              console.log(`Ignoring monitor ${monitorId} in monitors: ${JSON.stringify(this.config.monitors)}`);
+          if (status != lastMonitors[monitorId]) {
+            triggered = true;
+            if (status === -1) {
+              color = '#FF0000';
+              alerts.push(monitor.name + " is down!");
+            } else if (lastMonitors[monitorId]) {
+              alerts.push(monitor.name + " is back up.");
             }
+            lastMonitors[monitorId] = status;
+          }
+
+          if (triggered) {
+            return new q.Signal([points], {
+              name: "Montastic Monitor",
+              message: alerts.join("; ")
+            });
           } else {
-            console.log(`Pushing point: ${JSON.stringify(point)}`);
-            points.push(point);
+            return null;
           }
         }
 
-        return new q.Signal([points]);
       })
       .catch(function (error) {
         console.error("Got error sending request to service:", error);
@@ -70,7 +73,7 @@ class QMontastic extends q.DesktopApp {
   }
 
   locateMonitor(monitorId) {
-    for (let i=0; i<this.config.monitors.length; i++) {
+    for (let i = 0; i < this.config.monitors.length; i++) {
       if (this.config.monitors[i] == monitorId) {
         return i;
       }
