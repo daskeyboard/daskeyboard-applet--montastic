@@ -46,6 +46,8 @@ class QMontastic extends q.DesktopApp {
 
           console.log(`For monitor ${monitorId}, got status: ${status}`);
           if (status != this.lastMonitors[monitorId]) {
+            console.log("This is a trigger, because previous monitor was: " +
+              this.lastMonitors[monitorId]);
             triggered = true;
             if (status === -1) {
               color = '#FF0000';
@@ -57,7 +59,9 @@ class QMontastic extends q.DesktopApp {
           }
 
           if (triggered) {
-            return new q.Signal([points], {
+            return new q.Signal([
+              [new q.Point(color)]
+            ], {
               name: "Montastic Monitor",
               message: alerts.join("; ")
             });
