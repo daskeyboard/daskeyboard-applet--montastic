@@ -29,7 +29,9 @@
       "defaults": {}
     },
     "requirements": {
-      "authorization": "apiKey",
+      "authorization": {
+        "type": "apiKey"
+      },
       "applet": {
         "monitors": "string.."
       }
