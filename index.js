@@ -61,9 +61,8 @@ class QMontastic extends q.DesktopApp {
           }
 
           if (triggered) {
-            let signal = new q.Signal([
-              [new q.Point(color)]
-            ], {
+            let signal = new q.Signal({ 
+              points:[[new q.Point(color)]],
               name: "Montastic Monitor",
               message: alerts.join("; ")
             });
