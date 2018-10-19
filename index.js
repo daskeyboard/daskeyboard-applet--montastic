@@ -66,8 +66,6 @@ class QMontastic extends q.DesktopApp {
               name: "Montastic Monitor",
               message: alerts.join("; ")
             });
-            console.log("Signal: " + JSON.stringify(signal));
-            
             return signal;
           } else {
             return null;
