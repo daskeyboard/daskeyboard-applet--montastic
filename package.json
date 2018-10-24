@@ -17,7 +17,7 @@
     "url": "https://github.com/corykim/q-extension-montastic.git"
   },
   "dependencies": {
-    "daskeyboard-applet": "^2.4.x",
+    "daskeyboard-applet": "~2.4.3",
     "request-promise": "^4.2.2"
   },
   "qConfig": {
