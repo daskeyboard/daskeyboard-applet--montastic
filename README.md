@@ -5,9 +5,11 @@ This script displays CPU usage as a progress bar on
 
 ![Image of Montastic RGB display on Das Keyboard 5Q](./assets/image.png)
 
-## Installation
+## Requirements
 
-Installation via Das Keyboard Q Deskop application.
+A Montastic account.
+
+A Q Desktop app installed and Q series Das Keyboard (www.daskeyboard.com/5q).
 
 ## Copyright / License
 
