@@ -5,7 +5,6 @@ This script displays CPU usage as a progress bar on
 
 ![Image of Montastic RGB display on Das Keyboard 5Q](./assets/image.png)
 
-
 ## Requirements
 
 Install [yarn](https://yarnpkg.com/en/) and [node](https://nodejs.org/en/)
