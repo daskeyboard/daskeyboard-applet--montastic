@@ -1,20 +1,26 @@
 {
-  "name": "q-extension-montastic",
-  "displayName": "Create alerts from Montastic",
+  "name": "q-applet-montastic",
+  "displayName": "Website monitor with Montastic",
   "publisher": "Metadot Corporation",
   "version": "1.0.0",
-  "description": "Checks the Montastic service for alerts, sends a signal if one is found.",
-  "icon": "assets/icon.png",
+  "appUrl": "https://montasic.com",
+  "description": "Switch an LED to green or red whether your website is up or down.",
+  "longDescription": "Get Montastic alerts directly on your Das Keyboard Q keyboard. Requires a Montastic account",
+  "icon": "assets/==============================================icon.png",
+  "image": "assets/image.png",
+  "videoUrl": "",
+  "publisherName": "Das Keyboard",
+  "authorName": "Das Keyboard team",
+  "authorUrl": "https://twitter.com/daskeyboard",
+  "issuesUrl": "https://github.com/metadot/q-applet-montastic/issues",
+  "developerRepoUrl": "https://github.com/metadot/q-applet-montastic",
+  "licenseUrl": "http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt",
+  "changelogUrl": "",
+  "qActionUrl": "",
   "main": "index.js",
-  "author": "Cory Kim",
-  "license": "MIT",
   "scripts": {
     "start": "node .",
     "watch": "nodemon ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/corykim/q-extension-montastic.git"
   },
   "dependencies": {
     "daskeyboard-applet": "~2.4.3",
