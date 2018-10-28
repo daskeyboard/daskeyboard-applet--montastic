@@ -3,7 +3,8 @@
 This script displays CPU usage as a progress bar on 
 [`,1,2,3,4,5,6,7,8,9] keys of a Das Keyboard Q Series.
 
-![alt text](./assets/q-cpu-usage.png "Q CPU usage")
+![Image of Montastic RGB display on Das Keyboard 5Q](./assets/q-cpu-usage.png)
+
 
 ## Requirements
 
