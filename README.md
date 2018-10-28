@@ -1,20 +1,13 @@
-# Reports on monitors from Montastic
+# Reports on monitors from Montastic for Das Keyboard Q
 
 This script displays CPU usage as a progress bar on 
 [`,1,2,3,4,5,6,7,8,9] keys of a Das Keyboard Q Series.
 
 ![Image of Montastic RGB display on Das Keyboard 5Q](./assets/image.png)
 
-## Requirements
-
-Install [yarn](https://yarnpkg.com/en/) and [node](https://nodejs.org/en/)
-
-[Das Keyboard Q](https://daskeyboard.io/get-started/download) running 
-
 ## Installation
 
 Installation via Das Keyboard Q Deskop application
-
 
 ## Copyright / License
 
