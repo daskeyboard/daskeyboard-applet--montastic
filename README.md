@@ -1,9 +1,6 @@
 # Q Applet that reports on monitors from Montastic
 
-This script displays CPU usage as a progress bar on 
-[`,1,2,3,4,5,6,7,8,9] keys of a Das Keyboard Q Series.
-
-![Image of Montastic RGB display on Das Keyboard 5Q](./assets/image.png)
+This script shows the websites status on a Q keyboard. It is using the Montastic service www.montastic.com.
 
 ## Requirements
 
