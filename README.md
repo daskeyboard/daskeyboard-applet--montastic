@@ -1,12 +1,20 @@
-# Q Applet that reports on monitors from Montastic
+# Q Applet: Montastic
 
-This script shows the websites status on a Q keyboard. It is using the Montastic service www.montastic.com.
+Displays website statuses on a Das Keyboard Q Series, 
+using the [Montastic] (www.montastic.com) service.
 
-## Requirements
+## Changelog
 
-A Montastic account.
+[CHANGELOG.MD](CHANGELOG.md)
 
-A Q Desktop app installed and Q series Das Keyboard (www.daskeyboard.com/5q).
+## Installation
+
+Requires a Das Keyboard Q Series: www.daskeyboard.com/5q and a Montastic account.
+
+Installation, configuration and uninstallation of applets is done within
+the Q Desktop application (https://www.daskeyboard.io/get-started/software/)
+
+## Docs & Contribute
 
 ## Copyright / License
 
