@@ -10,14 +10,15 @@
   "license": "MIT",
   "scripts": {
     "start": "node .",
-    "watch": "nodemon ."
+    "watch": "nodemon .",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/corykim/q-extension-montastic.git"
   },
   "dependencies": {
-    "daskeyboard-applet": "~2.4.3",
+    "daskeyboard-applet": "^2.7.7",
     "request-promise": "^4.2.2"
   },
   "qConfig": {
@@ -36,5 +37,8 @@
         "monitors": "string.."
       }
     }
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
   }
 }

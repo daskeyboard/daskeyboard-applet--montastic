@@ -1,5 +1,6 @@
 const q = require('daskeyboard-applet');
 const request = require('request-promise');
+const logger = q.logger;
 
 const serviceUrl = 'https://www.montastic.com/checkpoints/index';
 
@@ -19,13 +20,14 @@ const responseEffects = {
 class QMontastic extends q.DesktopApp {
   constructor() {
     super();
+    this.lastMonitors = {};
+  }
 
+  async applyConfig() {
     this.serviceHeaders = {
       "Content-Type": "application/json",
       "X-API-KEY": this.authorization.apiKey,
     }
-
-    this.lastMonitors = {};
   }
 
   /** ping Montastic and set the signal  */
@@ -44,18 +46,18 @@ class QMontastic extends q.DesktopApp {
           let status = monitor.status;
           let monitorId = monitor.id;
 
-          console.log(`For monitor ${monitorId}, got status: ${status}`);
+          logger.info(`For monitor ${monitorId}, got status: ${status}`);
           if (status != this.lastMonitors[monitorId]) {
-            console.log("This is a trigger, because previous monitor was: " +
+            logger.info("This is a trigger, because previous monitor was: " +
               this.lastMonitors[monitorId]);
             triggered = true;
             if (status === -1) {
               color = '#FF0000';
               alerts.push(monitor.name + " is down!");
-              console.log("Sending alert on " + monitor.name + " is down");
+              logger.info("Sending alert on " + monitor.name + " is down");
             } else if (this.lastMonitors[monitorId] === -1) {
               alerts.push(monitor.name + " is back up.");
-              console.log("Sending alert on " + monitor.name + " is back up");
+              logger.info("Sending alert on " + monitor.name + " is back up");
             }
             this.lastMonitors[monitorId] = status;
           }
@@ -89,3 +91,7 @@ class QMontastic extends q.DesktopApp {
 
 
 const montastic = new QMontastic();
+
+module.exports = {
+  QMontastic: QMontastic
+}
