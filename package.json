@@ -26,7 +26,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "daskeyboard-applet": "^2.7.7",
+    "daskeyboard-applet": "^2.7.9",
     "request-promise": "^4.2.2"
   },
   "qConfig": {
