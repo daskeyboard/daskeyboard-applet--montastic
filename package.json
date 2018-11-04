@@ -2,7 +2,7 @@
   "name": "q-applet-montastic",
   "displayName": "Website monitor with Montastic",
   "publisher": "Metadot Corporation",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "officialProductName": "Montastic",
   "appUrl": "https://montastic.com",
   "description": "Turn keys to green or red whether the monitored website is up or down.",
