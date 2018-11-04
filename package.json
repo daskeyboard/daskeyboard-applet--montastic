@@ -45,7 +45,7 @@
         "required": true,
         "order": 2,
         "controlType": "textbox",
-        "type": "apiKey"
+        "authorization": "apiKey"
       },
       {
         "key": "monitors",
