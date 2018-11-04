@@ -37,6 +37,25 @@
     "applet": {
       "defaults": {}
     },
+    "questions": [
+      {
+        "key": "apiKey",
+        "label": "API Key",
+        "help": "You can find your API key in your Montastic account page",
+        "required": true,
+        "order": 2,
+        "controlType": "textbox",
+        "type": "apiKey"
+      },
+      {
+        "key": "monitors",
+        "label": "Url",
+        "help": "Enter the url of the site to be monitored by the Montastic Applet",
+        "required": true,
+        "order": 1,
+        "controlType": "textbox"
+      }
+    ],
     "requirements": {
       "authorization": {
         "type": "apiKey"
