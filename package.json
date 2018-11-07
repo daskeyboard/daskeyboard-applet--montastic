@@ -46,24 +46,8 @@
         "order": 2,
         "controlType": "textbox",
         "authorization": "apiKey"
-      },
-      {
-        "key": "monitors",
-        "label": "Url",
-        "help": "Enter the url of the site to be monitored by the Montastic Applet",
-        "required": true,
-        "order": 1,
-        "controlType": "textbox"
       }
-    ],
-    "requirements": {
-      "authorization": {
-        "type": "apiKey"
-      },
-      "applet": {
-        "monitors": "string.."
-      }
-    }
+    ]
   },
   "devDependencies": {
     "mocha": "^5.2.0"
