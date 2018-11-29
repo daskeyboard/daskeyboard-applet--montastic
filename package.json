@@ -22,6 +22,9 @@
   "qActionUrl": "",
   "readMeUrl": "README.md",
   "readMeEndUserUrl": "READMEENDUSER.mde",
+  "engines": {
+    "das-keyboard-q": "3.1.x"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node .",
@@ -37,20 +40,14 @@
       "width": 1,
       "height": 1
     },
+    "authorization": {
+      "type": "apiKey",
+      "hint": "You can find your API key in your Montastic account page",
+      "supportUrl": "https://montastic.com/me"
+    },
     "applet": {
       "defaults": {}
-    },
-    "questions": [
-      {
-        "key": "apiKey",
-        "label": "API Key",
-        "help": "You can find your API key in your Montastic account page",
-        "required": true,
-        "order": 2,
-        "controlType": "textbox",
-        "authorization": "apiKey"
-      }
-    ]
+    }
   },
   "devDependencies": {
     "mocha": "^5.2.0"
