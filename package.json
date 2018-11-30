@@ -42,7 +42,7 @@
     },
     "authorization": {
       "type": "apiKey",
-      "hint": "You can find your API key in your Montastic account page",
+      "hint": "Login or signup for free to get your API key",
       "supportUrl": "https://montastic.com/me"
     },
     "applet": {
