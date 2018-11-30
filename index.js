@@ -59,6 +59,13 @@ class QMontastic extends q.DesktopApp {
               alerts.push(monitor.name + " is back up.");
               logger.info("Sending alert on " + monitor.name + " is back up");
             }
+
+            // Add text when everything is working
+            if(status===1){
+              alerts.push(monitor.name + " is working");
+              logger.info("Sending alert on " + monitor.name + " is working");
+            }
+
             this.lastMonitors[monitorId] = status;
           }
 
