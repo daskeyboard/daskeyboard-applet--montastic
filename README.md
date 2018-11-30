@@ -3,16 +3,20 @@
 Displays website statuses on a Das Keyboard Q Series, 
 using the [Montastic] (www.montastic.com) service.
 
+When all website are functioning properly the indicator color is green, if any website is down the indicator color is red.
+
+![Montastic monitoring on a Das Keybaord Q](assets/montastic-usage-down.png "Montastic monitor is down")
+
 ## Changelog
 
 [CHANGELOG.MD](CHANGELOG.md)
 
 ## Installation
 
-Requires a Das Keyboard Q Series: www.daskeyboard.com/5q and a Montastic account.
+Requires a Das Keyboard Q Series: www.daskeyboard.com and a Montastic account.
 
 Installation, configuration and uninstallation of applets is done within
-the Q Desktop application (https://www.daskeyboard.io/get-started/software/)
+the Q Desktop application (https://www.daskeyboard.com/q)
 
 ## Docs & Contribute
 
