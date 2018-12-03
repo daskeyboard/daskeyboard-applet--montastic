@@ -1,9 +1,8 @@
 # Q Applet: Montastic
 
-Displays website statuses on a Das Keyboard Q Series, 
-using the [Montastic] (www.montastic.com) service.
+Montastic monitor websites displays their statuses in color: green - website is reachable, red: website is unreachable.
 
-When all website are functioning properly the indicator color is green, if any website is down the indicator color is red.
+To get started, get a free account at [Montastic] (https://www.montastic.com) .
 
 ![Montastic monitoring on a Das Keybaord Q](assets/montastic-usage-down.png "Montastic monitor is down")
 
