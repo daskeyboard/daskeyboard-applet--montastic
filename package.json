@@ -17,11 +17,11 @@
   "homePageUrl": "https://montastic.com",
   "developerRepoUrl": "https://github.com/daskeyboard/q-applet-montastic",
   "licenseUrl": "http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt",
-  "changelogUrl": "https://github.com/daskeyboard/daskeyboard-applet--montastic/blob/master/CHANGELOG.md",
+  "changelogUrl": "CHANGELOG.md",
   "license": "MIT",
   "qActionUrl": "",
-  "readMeUrl": "https://github.com/daskeyboard/daskeyboard-applet--montastic/blob/master/README.md",
-  "readMeEndUserUrl": "https://github.com/daskeyboard/daskeyboard-applet--montastic/blob/master/README_ENDUSER.md",
+  "readMeUrl": "README.md",
+  "readMeEndUserUrl": "README_ENDUSER.md",
   "engines": {
     "das-keyboard-q": "3.1.x"
   },
