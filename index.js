@@ -53,17 +53,17 @@ class QMontastic extends q.DesktopApp {
             triggered = true;
             if (status === -1) {
               color = '#FF0000';
-              alerts.push(monitor.name + " is down!");
-              logger.info("Sending alert on " + monitor.name + " is down");
+              alerts.push(monitor.url + " is down!");
+              logger.info("Sending alert on " + monitor.url + " is down");
             } else if (this.lastMonitors[monitorId] === -1) {
-              alerts.push(monitor.name + " is back up.");
-              logger.info("Sending alert on " + monitor.name + " is back up");
+              alerts.push(monitor.url + " is back up.");
+              logger.info("Sending alert on " + monitor.url + " is back up");
             }
 
             // Add text when everything is working
             if(status===1){
-              alerts.push(monitor.name + " is working");
-              logger.info("Sending alert on " + monitor.name + " is working");
+              alerts.push(monitor.url + " is working");
+              logger.info("Sending alert on " + monitor.url + " is working");
             }
 
             this.lastMonitors[monitorId] = status;
