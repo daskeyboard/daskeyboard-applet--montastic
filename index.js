@@ -82,8 +82,12 @@ class QMontastic extends q.DesktopApp {
         }
 
       })
-      .catch(function (error) {
-        console.error("Got error sending request to service:", error);
+      .catch(error => {
+        logger.error(
+          `Got error sending request to service: ${JSON.stringify(error)}`);
+        return this.signalError([
+          'The Montastic service returned an error. Please check your API key and account./',
+          `Detail: ${error.message}`]);
       });
   }
 
