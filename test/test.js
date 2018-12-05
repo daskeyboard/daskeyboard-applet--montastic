@@ -8,8 +8,11 @@ describe('QMontastic', function () {
   describe('#run()', function () {
     it('runs normally', async function () {
       return buildApp().then(app => {
-        app.run().then((signal) => {
+        return app.run().then((signal) => {
+          console.log(JSON.stringify(signal));
           assert.ok(signal);
+          assert.ok(signal.link.url);
+          assert.ok(signal.link.label);
         }).catch(error => {
           assert.fail(error);
         });
@@ -21,8 +24,7 @@ describe('QMontastic', function () {
           apiKey: 'mickey mouse',
         }
       }).then(app => {
-        app.run().then((signal) => {
-          console.log(JSON.stringify(signal));
+        return app.run().then((signal) => {
           assert.ok(signal);
           assert.equal('ERROR', signal.body.action);
         }).catch(error => {
