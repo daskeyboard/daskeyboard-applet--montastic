@@ -94,8 +94,8 @@ class QMontastic extends q.DesktopApp {
       .catch(error => {
         logger.error(
           `Got error sending request to service: ${JSON.stringify(error)}`);
-        return this.signalError([
-          'The Montastic service returned an error. Please check your API key and account./',
+        return q.Signal.error([
+          'The Montastic service returned an error. Please check your API key and account.',
           `Detail: ${error.message}`]);
       });
   }

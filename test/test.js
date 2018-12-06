@@ -23,10 +23,10 @@ describe('QMontastic', function () {
         authorization: {
           apiKey: 'mickey mouse',
         }
-      }).then(app => {
+      }).then(async app => {
         return app.run().then((signal) => {
           assert.ok(signal);
-          assert.equal('ERROR', signal.body.action);
+          assert.equal('ERROR', signal.action);
         }).catch(error => {
           assert.fail(error);
         });
