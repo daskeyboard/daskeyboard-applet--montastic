@@ -21,6 +21,8 @@ class QMontastic extends q.DesktopApp {
   constructor() {
     super();
     this.lastMonitors = {};
+    //Use to initialize
+    this.firstLoop = true;
   }
 
   async applyConfig() {
@@ -39,55 +41,68 @@ class QMontastic extends q.DesktopApp {
       }).then((body) => {
         let color = '#00FF00';
         let triggered = false;
-        let alerts = [];
+        let alerts = [`ALARM `];
+        let effects = "SET_COLOR";
 
         for (let monitor of body) {
           // extract the important values from the response
           let status = monitor.status;
           let monitorId = monitor.id;
 
+          //Initialization of lastMonitors{}
+          if(this.firstLoop){
+            this.lastMonitors[monitorId]=1;
+          }
+
           logger.info(`For monitor ${monitorId}, got status: ${status}`);
-          if (status != this.lastMonitors[monitorId]) {
-            logger.info("This is a trigger, because previous monitor was: " +
-              this.lastMonitors[monitorId]);
+
+          if (status === -1) {
             triggered = true;
-            if (status === -1) {
-              color = '#FF0000';
-              alerts.push(monitor.url + " is down!");
-              logger.info("Sending alert on " + monitor.url + " is down");
-            } else if (this.lastMonitors[monitorId] === -1) {
+            color = '#FF0000';
+            alerts.push(monitor.url + " is down!");
+            logger.info("Sending alert on " + monitor.url + " is down");
+          } else {
+
+            if (this.lastMonitors[monitorId] === -1) {
+              triggered = true;
+              effects="BLINK";
               alerts.push(monitor.url + " is back up.");
               logger.info("Sending alert on " + monitor.url + " is back up");
             }
 
-            // FABIEN: the only way this code can run is if the previous
-            // 'monitor is back up' message has also run. So this logic needs
-            // to be moved to another place.
-            // {
-            // Add text when everything is working
-            if(status===1){
-              alerts.push(monitor.url + " is working");
-              logger.info("Sending alert on " + monitor.url + " is working");
+          }
+
+          this.lastMonitors[monitorId] = status;
+
+
+        }
+         
+
+        //We initialize just one time
+        this.firstLoop=false;
+
+        if (triggered) {
+          let signal = new q.Signal({ 
+            points:[[new q.Point(color,effects)]],
+            name: "Montastic Monitor",
+            message: alerts.join(' '),
+            link: {
+              url: 'https://www.montastic.com/checkpoints',
+              label: 'Show in Montastic',
             }
-            // }
-
-            this.lastMonitors[monitorId] = status;
-          }
-
-          if (triggered) {
-            let signal = new q.Signal({ 
-              points:[[new q.Point(color)]],
-              name: "Montastic Monitor",
-              message: alerts.join("; "),
-              link: {
-                url: 'https://www.montastic.com/checkpoints',
-                label: 'Show in Montastic',
-              }
-            });
-            return signal;
-          } else {
-            return null;
-          }
+          });
+          return signal;
+        } else {
+          let signal = new q.Signal({ 
+            points:[[new q.Point(color)]],
+            name: "Montastic Monitor",
+            message: `Everything is OK`,
+            link: {
+              url: 'https://www.montastic.com/checkpoints',
+              label: 'Show in Montastic',
+            }
+          });
+          return signal;
         }
 
       })
