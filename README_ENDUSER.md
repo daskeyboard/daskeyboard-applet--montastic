@@ -1,7 +1,12 @@
 # Montastic
 
-Montastic monitor websites displays their statuses in color: green - website is reachable, red: website is unreachable.
+Montastic monitor URLs and sends you an email when a website goes down.
 
-To get started, get a free account at [Montastic] (https://www.montastic.com) .
+This applet displays Montastic alarms on the Q device: 
+
+- `green`: website is OK
+- `red`: website alarm
+
+To get started, signup for a free Montastic account at <https://www.montastic.com>.
 
 ![Montastic monitoring on a Das Keybaord Q](assets/image.png "Montastic alert")
