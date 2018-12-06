@@ -25,6 +25,7 @@
   "engines": {
     "das-keyboard-q": "3.1.x"
   },
+  "isSingleton":false,
   "main": "index.js",
   "scripts": {
     "start": "node .",
