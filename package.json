@@ -2,7 +2,7 @@
   "name": "daskeyboard-applet--montastic",
   "displayName": "Montastic",
   "publisher": "Metadot Corporation",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "officialProductName": "Montastic",
   "appUrl": "https://montastic.com",
   "description": "Turn keys to green or red whether the monitored website is up or down.",
