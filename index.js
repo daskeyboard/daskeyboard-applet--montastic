@@ -23,6 +23,8 @@ class QMontastic extends q.DesktopApp {
     this.lastMonitors = {};
     //Use to initialize
     this.firstLoop = true;
+    // run every 1 min
+    this.pollingInterval = 1*60*1000;
   }
 
   async applyConfig() {
