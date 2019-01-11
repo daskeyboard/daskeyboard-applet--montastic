@@ -5,7 +5,7 @@
   "version": "1.0.6",
   "officialProductName": "Montastic",
   "appUrl": "https://montastic.com",
-  "description": "Turn keys to green or red whether the monitored website is up or down.",
+  "description": "Get a notification when one of your site goes down.",
   "longDescription": "Get Montastic alerts directly on a Das Keyboard Q keyboard. Requires a Montastic account.",
   "icon": "assets/icon.png",
   "image": "assets/image-missing.png",
