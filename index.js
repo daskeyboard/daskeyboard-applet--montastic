@@ -87,7 +87,7 @@ class QMontastic extends q.DesktopApp {
         if (triggered) {
           let signal = new q.Signal({ 
             points:[[new q.Point(color,effects)]],
-            name: "Montastic Monitor",
+            name: "Montastic",
             message: alerts.join(' \n'),
             link: {
               url: 'https://www.montastic.com/checkpoints',
@@ -98,7 +98,7 @@ class QMontastic extends q.DesktopApp {
         } else {
           let signal = new q.Signal({ 
             points:[[new q.Point(color)]],
-            name: "Montastic Monitor",
+            name: "Montastic",
             message: `Everything is OK`,
             link: {
               url: 'https://www.montastic.com/checkpoints',
