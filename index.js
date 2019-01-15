@@ -88,7 +88,7 @@ class QMontastic extends q.DesktopApp {
           let signal = new q.Signal({ 
             points:[[new q.Point(color,effects)]],
             name: "Montastic",
-            message: alerts.join(' \n'),
+            message: alerts.join('<br>'),
             link: {
               url: 'https://www.montastic.com/checkpoints',
               label: 'Show in Montastic',
