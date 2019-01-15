@@ -61,6 +61,7 @@ class QMontastic extends q.DesktopApp {
           if (status === -1) {
             triggered = true;
             color = '#FF0000';
+            effects="BLINK";
             alerts.push(monitor.url + " is down!");
             logger.info("Sending alert on " + monitor.url + " is down");
           } else {
