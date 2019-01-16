@@ -12,3 +12,4 @@ Images and README updated.
 ## Version 1.0.6 - January 11, 2019
 
 BLINK effect added when server is down.
+README updated.
