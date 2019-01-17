@@ -20,9 +20,6 @@ const responseEffects = {
 class QMontastic extends q.DesktopApp {
   constructor() {
     super();
-    this.lastMonitors = {};
-    //Use to initialize
-    this.firstLoop = true;
     // run every 1 min
     this.pollingInterval = 1*60*1000;
   }
@@ -51,11 +48,6 @@ class QMontastic extends q.DesktopApp {
           let status = monitor.status;
           let monitorId = monitor.id;
 
-          //Initialization of lastMonitors{}
-          if(this.firstLoop){
-            this.lastMonitors[monitorId]=1;
-          }
-
           logger.info(`For monitor ${monitorId}, got status: ${status}`);
 
           if (status === -1) {
@@ -64,26 +56,10 @@ class QMontastic extends q.DesktopApp {
             effects="BLINK";
             alerts.push(monitor.url + " is down!");
             logger.info("Sending alert on " + monitor.url + " is down");
-          } else {
-
-            if (this.lastMonitors[monitorId] === -1) {
-              triggered = true;
-              effects="BLINK";
-              alerts.push(monitor.url + " is back up.");
-              logger.info("Sending alert on " + monitor.url + " is back up");
-            }
-
-          }
-
-          this.lastMonitors[monitorId] = status;
-
-
+          } 
+          
         }
          
-
-        //We initialize just one time
-        this.firstLoop=false;
-
         if (triggered) {
           let signal = new q.Signal({ 
             points:[[new q.Point(color,effects)]],
@@ -99,7 +75,7 @@ class QMontastic extends q.DesktopApp {
           let signal = new q.Signal({ 
             points:[[new q.Point(color)]],
             name: "Montastic",
-            message: `Everything is OK`,
+            message: `Everything is OK.`,
             link: {
               url: 'https://www.montastic.com/checkpoints',
               label: 'Show in Montastic',

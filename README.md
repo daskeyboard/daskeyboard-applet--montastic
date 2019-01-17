@@ -4,13 +4,12 @@ Montastic monitor URLs and sends you an email when a website goes down.
 
 This applet displays Montastic alarms on the Q device:
 
-- `green`: website is OK
-- `green` and falshing: website is coming back
-- `red`: website alarm
+- <span style="color:green">Green</span>: website is OK
+- <span style="color:red">Red</span>: website alarm
 
 To get started, signup for a free Montastic account at <https://www.montastic.com>.
 
-![Montastic monitoring on a Das Keybaord Q](assets/image.png "Montastic alert")
+![Montastic on a Das Keybaord Q](assets/image.png "Das Keyboard Montastic applet")
 
 ## Changelog
 
