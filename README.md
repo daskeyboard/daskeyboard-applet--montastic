@@ -1,8 +1,8 @@
 # Q Applet: Montastic
 
-Montastic monitor URLs and sends you an email when a website goes down.
+Montastic monitor URLs and sends an email when a website goes down.
 
-This applet displays Montastic alarms on the Q device:
+This applet displays Montastic alarms on a Q device:
 
 - <span style="color:green">Green</span>: website is OK
 - <span style="color:red">Red</span>: website alarm
