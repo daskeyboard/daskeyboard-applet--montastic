@@ -22,7 +22,7 @@
   "readMeUrl": "README.md",
   "readMeEndUserUrl": "README_ENDUSER.md",
   "engines": {
-    "das-keyboard-q": "3.1.0"
+    "das-keyboard-q": "3.2.2"
   },
   "isSingleton": false,
   "main": "index.js",
@@ -32,7 +32,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "daskeyboard-applet": "^2.10.13",
+    "daskeyboard-applet": "^2.11.3",
     "request-promise": "^4.2.2"
   },
   "qConfig": {
@@ -44,7 +44,41 @@
       "type": "apiKey",
       "hint": "Login or signup for free to get your API key",
       "supportUrl": "https://montastic.com/me"
-    }
+    },
+    "questions": [
+      {
+        "key": "upColor",
+        "label": "Choose an UP color",
+        "help": "Color when all the monitorings are OK",
+        "order": 1,
+        "value": "#00FF00",
+        "controlType": "color"
+      },
+      {
+        "key": "upEffect",
+        "label": "Choose an UP effect",
+        "help": "Effect when all the monitorings are UP",
+        "order": 2,
+        "value": "SET_COLOR",
+        "controlType": "effect"
+      },
+      {
+        "key": "downColor",
+        "label": "Choose a DOWN color",
+        "help": "Color when some monitorings are DOWN",
+        "order": 3,
+        "value": "#FF0000",
+        "controlType": "color"
+      },
+      {
+        "key": "downEffect",
+        "label": "Choose a DOWN effect",
+        "help": "Effect when all the monitorings are DOWN",
+        "order": 4,
+        "value": "SET_COLOR",
+        "controlType": "effect"
+      }
+    ]
   },
   "devDependencies": {
     "mocha": "^5.2.0"

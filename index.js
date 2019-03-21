@@ -4,24 +4,11 @@ const logger = q.logger;
 
 const serviceUrl = 'https://www.montastic.com/checkpoints/index';
 
-const responseColors = {
-  "0": '#FFFF00',
-  "1": '#00FF00',
-  "-1": '#FF0000'
-}
-
-const responseEffects = {
-  "0": q.Effects.BOUNCING_LIGHT,
-  "1": q.Effects.SET_COLOR,
-  "-1": q.Effects.BLINK
-}
-
-
 class QMontastic extends q.DesktopApp {
   constructor() {
     super();
     // run every 1 min
-    this.pollingInterval = 1*60*1000;
+    this.pollingInterval = 1 * 60 * 1000;
   }
 
   async applyConfig() {
@@ -33,58 +20,62 @@ class QMontastic extends q.DesktopApp {
 
   /** ping Montastic and set the signal  */
   async run() {
+    const upColor = this.config.upColor || '#00FF00';
+    const downColor = this.config.downColor || '#FF0000';
+    const upEffect = this.config.upEffect || 'SET_COLOR';
+    const downEffect = this.config.downEffect || 'BLINK';
     return request.get({
-        url: serviceUrl,
-        headers: this.serviceHeaders,
-        json: true
-      }).then((body) => {
-        let color = '#00FF00';
-        let triggered = false;
-        let alerts = [`ALARM `];
-        let effects = "SET_COLOR";
+      url: serviceUrl,
+      headers: this.serviceHeaders,
+      json: true
+    }).then((body) => {
+      let color = upColor;
+      let triggered = false;
+      let alerts = [`ALARM `];
+      let effect = upEffect;
 
-        for (let monitor of body) {
-          // extract the important values from the response
-          let status = monitor.status;
-          let monitorId = monitor.id;
+      for (let monitor of body) {
+        // extract the important values from the response
+        let status = monitor.status;
+        let monitorId = monitor.id;
 
-          logger.info(`For monitor ${monitorId}, got status: ${status}`);
+        logger.info(`For monitor ${monitorId}, got status: ${status}`);
 
-          if (status === -1) {
-            triggered = true;
-            color = '#FF0000';
-            effects="BLINK";
-            alerts.push(monitor.url + " is down!");
-            logger.info("Sending alert on " + monitor.url + " is down");
-          } 
-          
-        }
-         
-        if (triggered) {
-          let signal = new q.Signal({ 
-            points:[[new q.Point(color,effects)]],
-            name: "Montastic",
-            message: alerts.join('<br>'),
-            link: {
-              url: 'https://www.montastic.com/checkpoints',
-              label: 'Show in Montastic',
-            }
-          });
-          return signal;
-        } else {
-          let signal = new q.Signal({ 
-            points:[[new q.Point(color)]],
-            name: "Montastic",
-            message: `Everything is OK.`,
-            link: {
-              url: 'https://www.montastic.com/checkpoints',
-              label: 'Show in Montastic',
-            }
-          });
-          return signal;
+        if (status === -1) {
+          triggered = true;
+          color = downColor;
+          effect = downEffect;
+          alerts.push(monitor.url + " is down!");
+          logger.info("Sending alert on " + monitor.url + " is down");
         }
 
-      })
+      }
+
+      if (triggered) {
+        let signal = new q.Signal({
+          points: [[new q.Point(color, effect)]],
+          name: "Montastic",
+          message: alerts.join('<br>'),
+          link: {
+            url: 'https://www.montastic.com/checkpoints',
+            label: 'Show in Montastic',
+          }
+        });
+        return signal;
+      } else {
+        let signal = new q.Signal({
+          points: [[new q.Point(color, effect)]],
+          name: "Montastic",
+          message: `Everything is OK.`,
+          link: {
+            url: 'https://www.montastic.com/checkpoints',
+            label: 'Show in Montastic',
+          }
+        });
+        return signal;
+      }
+
+    })
       .catch(error => {
         logger.error(
           `Got error sending request to service: ${JSON.stringify(error)}`);
