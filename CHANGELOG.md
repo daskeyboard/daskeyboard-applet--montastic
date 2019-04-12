@@ -13,3 +13,8 @@ Images and README updated.
 
 BLINK effect added when server is down.
 README updated.
+
+## Version 2.0.0 - April 12, 2019
+
+The applet allows to choose the colors and effect during the configuration.
+Handled error when the user loses his internet connection.
