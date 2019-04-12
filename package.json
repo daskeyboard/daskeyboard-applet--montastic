@@ -2,7 +2,7 @@
   "name": "daskeyboard-applet--montastic",
   "displayName": "Montastic",
   "publisher": "Metadot Corporation",
-  "version": "2.0.0",
+  "version": "1.0.6",
   "officialProductName": "Montastic",
   "appUrl": "https://montastic.com",
   "description": "Get a notification when one of your site goes down.",
