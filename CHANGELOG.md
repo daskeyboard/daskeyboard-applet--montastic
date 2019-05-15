@@ -1,20 +1,24 @@
 # Changelog Q Applet Montastic
 
-## Version 1.0.0 - October 30, 2018
+## Version 2.0.1 - May 15, 2019
 
-First release
+Removed internet connection error.
 
-## Version 1.0.5 - December 06, 2018
+## Version 2.0.0 - April 12, 2019
 
-Logic issue fixed.
-Images and README updated.
+The applet allows to choose the colors and effect during the configuration.
+Handled error when the user loses his internet connection.
 
 ## Version 1.0.6 - January 11, 2019
 
 BLINK effect added when server is down.
 README updated.
 
-## Version 2.0.0 - April 12, 2019
+## Version 1.0.5 - December 06, 2018
 
-The applet allows to choose the colors and effect during the configuration.
-Handled error when the user loses his internet connection.
+Logic issue fixed.
+Images and README updated.
+
+## Version 1.0.0 - October 30, 2018
+
+First release
